@@ -1,0 +1,17 @@
+# Set the version of docker compose to use
+version: '3.9'
+
+# The containers that compose the project
+services:
+  dev-db:
+    image: mysql
+    command: --mysql-native-password=ON
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dev
+      MYSQL_DATABASE: devdb-msql
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev
+      MYSQL_TCP_PORT: 3307
+    ports:
+      - '3303:3307'
